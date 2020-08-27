@@ -623,5 +623,35 @@ var config = {
                 }
             ]
         }
-    ]
+    ],
+    swap: {
+        altij: [
+            {
+                name: 'Default I and J',
+                value: false
+            },
+            {
+                name: 'Alternates I and J',
+                value: true
+            }
+        ],
+        figures: [
+            {
+                name: 'Tabular Lining Figures',
+                value: ''
+            },
+            {
+                name: 'Proportional Lining Figures',
+                value: 'plf'
+            },
+            {
+                name: 'Tabular Old Style Figures',
+                value: 'tosf'
+            },
+            {
+                name: 'Old Style Figures',
+                value: 'osf'
+            }
+        ]
+    }
 };

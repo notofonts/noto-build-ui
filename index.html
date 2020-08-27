@@ -271,39 +271,17 @@
                     <label class="control-name h5 d-block mb-3">Alternate Lettershapes</label>
                     <div class="row mb-2">
                         <div class="col-12 col-sm-4 mb-3 mb-sm-0 border-right">
-                            <div class="custom-control form-control-sm custom-radio" v-bind:class="{ 'disabled': !(options.swap_enabled && options.swap_altIJ_enabled) }">
-                                <input type="radio" id="swap-altij-no" class="custom-control-input" v-model="options.swap_altIJ" v-bind:value="false">
-                                <label class="custom-control-label" for="swap-altij-no">Default I and J</label>
-                            </div>
-                            <div class="custom-control form-control-sm custom-radio" v-bind:class="{ 'disabled': !(options.swap_enabled && options.swap_altIJ_enabled) }">
-                                <input type="radio" id="swap-altij-yes" class="custom-control-input" v-model="options.swap_altIJ" v-bind:value="true">
-                                <label class="custom-control-label" for="swap-altij-yes">Alternates I and J</label>
+                            <div class="custom-control form-control-sm custom-radio" v-for="item in choices.swap.altij" v-bind:class="{ 'disabled': !(options.swap_enabled && options.swap_altIJ_enabled) }">
+                                <input type="radio" class="custom-control-input" v-bind:id="'swap-altij-' + item.value|slugify" v-model="options.swap_altIJ" v-bind:value="item.value">
+                                <label class="custom-control-label" v-bind:for="'swap-altij-' + item.value|slugify">{{ item.name }}</label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-8">
                             <div class="row">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6" v-for="item in choices.swap.figures">
                                     <div class="custom-control form-control-sm custom-radio" v-bind:class="{ 'disabled': !options.swap_enabled }">
-                                        <input type="radio" id="swap-tlf" class="custom-control-input" v-model="options.swap_figures" value="">
-                                        <label class="custom-control-label" for="swap-tlf">Tabular Lining Figures</label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="custom-control form-control-sm custom-radio" v-bind:class="{ 'disabled': !options.swap_enabled }">
-                                        <input type="radio" id="swap-plf" class="custom-control-input" v-model="options.swap_figures" value="plf">
-                                        <label class="custom-control-label" for="swap-plf">Proportional Lining Figures</label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="custom-control form-control-sm custom-radio" v-bind:class="{ 'disabled': !options.swap_enabled }">
-                                        <input type="radio" id="swap-tosf" class="custom-control-input" v-model="options.swap_figures" value="tosf">
-                                        <label class="custom-control-label" for="swap-tosf">Tabular Old Style Figures</label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="custom-control form-control-sm custom-radio" v-bind:class="{ 'disabled': !options.swap_enabled }">
-                                        <input type="radio" id="swap-osf" class="custom-control-input" v-model="options.swap_figures" value="osf">
-                                        <label class="custom-control-label" for="swap-osf">Old Style Figures</label>
+                                        <input type="radio" class="custom-control-input" v-bind:id="'swap-figures-' + item.value|slugify" v-model="options.swap_figures" v-bind:value="item.value">
+                                        <label class="custom-control-label" v-bind:for="'swap-figures-' + item.value|slugify">{{ item.name }}</label>
                                     </div>
                                 </div>
                             </div>
