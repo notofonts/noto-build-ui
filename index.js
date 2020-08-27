@@ -905,7 +905,7 @@ var app = new Vue({
             var metrics = [metrics_ascender, metrics_descender];
             if (!isNaN(metrics_ascender) && !isNaN(metrics_descender)) {
                 if (metrics_ascender || metrics_descender) {
-                    command_options.push('--metrics "' + metrics.join(' ') + '"');
+                    command_options.push('--metrics ' + metrics.join(' '));
                 }
             }
 
