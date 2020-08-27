@@ -72,8 +72,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 col-sm-4 col-md-3" v-for="item in choices.scripts" v-if="(!item.hidden) && ((item.featured || options.scripts_show_all) || (!item.featured && !options.scripts_show_all && options.scripts_filter && options.scripts_filter !== ''))">
-                            <div class="custom-control form-control-sm custom-checkbox" v-bind:class="{ 'control-featured':item.featured }">
+                        <div class="col-6 col-sm-4 col-md-3 pr-0" v-for="item in choices.scripts" v-if="(!item.hidden) && ((item.featured || options.scripts_show_all) || (!item.featured && !options.scripts_show_all && options.scripts_filter && options.scripts_filter !== ''))">
+                            <div class="custom-control form-control-sm custom-checkbox text-truncate" v-bind:class="{ 'control-featured':item.featured }">
                                 <input type="checkbox" v-model="options.scripts" v-bind:id="'scripts-' + item.value|slugify" v-bind:value="item.value" v-on:change="onChangeScripts" class="custom-control-input" required>
                                 <label class="custom-control-label" v-bind:for="'scripts-' + item.value|slugify">
                                     <template v-if="item.featured && options.scripts_show_all"><strong>{{ item.name }}</strong></template>
@@ -135,7 +135,7 @@
                     <label class="control-name h5 d-block mb-3">Style</label>
                     <div class="row">
                         <div class="col-6 col-sm-2" v-for="item in choices.styles">
-                            <div class="custom-control form-control-sm custom-checkbox" v-bind:class="{ 'disabled': item.disabled }">
+                            <div class="custom-control form-control-sm custom-checkbox text-truncate" v-bind:class="{ 'disabled': item.disabled }">
                                 <input type="checkbox" v-model="options.styles" v-bind:id="'styles-' + item.value|slugify" v-bind:value="item.value" v-bind:disabled="item.disabled" v-on:change="onChangeStyles" class="custom-control-input">
                                 <label class="custom-control-label" v-bind:for="'styles-' + item.value|slugify">{{ item.name }}</label>
                             </div>
@@ -157,7 +157,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-4 col-md-3" v-for="item in choices.weight">
-                            <div class="custom-control form-control-sm custom-checkbox">
+                            <div class="custom-control form-control-sm custom-checkbox text-truncate">
                                 <input type="checkbox" v-model="options.weight" v-bind:id="'weight-' + item.value|slugify" v-bind:value="item.value" class="custom-control-input">
                                 <label class="custom-control-label" v-bind:for="'weight-' + item.value|slugify">{{ item.name }}</label>
                             </div>
@@ -179,7 +179,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-4 col-md-3" v-for="item in choices.width">
-                            <div class="custom-control form-control-sm custom-checkbox">
+                            <div class="custom-control form-control-sm custom-checkbox text-truncate">
                                 <input type="checkbox" v-model="options.width" v-bind:id="'width-' + item.value|slugify" v-bind:value="item.value" class="custom-control-input">
                                 <label class="custom-control-label" v-bind:for="'width-' + item.value|slugify">{{ item.name }}</label>
                             </div>
@@ -251,7 +251,7 @@
                     <div class="row mb-2">
                         <div class="col-6 col-sm-4 col-md-4 mt-2 mb-4" v-for="group in choices.subset">
                             <label class="control-name d-block h6">{{ group.name }}</label>
-                            <div class="custom-control form-control-sm custom-radio" v-for="item in group.subsets" v-bind:class="{ 'disabled': item.disabled }">
+                            <div class="custom-control form-control-sm custom-radio text-truncate" v-for="item in group.subsets" v-bind:class="{ 'disabled': item.disabled }">
                                 <input class="custom-control-input" type="radio" v-bind:id="'subset-' + (group.name + '-' + item.name)|slugify" v-model="options.subset[group.name]" v-bind:value="item.value" v-bind:disabled="item.disabled">
                                 <label class="custom-control-label" v-bind:for="'subset-' + (group.name + '-' + item.name)|slugify">{{ item.name }}</label>
                             </div>
@@ -271,7 +271,7 @@
                     <label class="control-name h5 d-block mb-3">Alternate Lettershapes</label>
                     <div class="row mb-2">
                         <div class="col-12 col-sm-4 mb-3 mb-sm-0 border-right">
-                            <div class="custom-control form-control-sm custom-radio" v-for="item in choices.swap.altij" v-bind:class="{ 'disabled': !(options.swap_enabled && options.swap_altIJ_enabled) }">
+                            <div class="custom-control form-control-sm custom-radio text-truncate" v-for="item in choices.swap.altij" v-bind:class="{ 'disabled': !(options.swap_enabled && options.swap_altIJ_enabled) }">
                                 <input type="radio" class="custom-control-input" v-bind:id="'swap-altij-' + item.value|slugify" v-model="options.swap_altIJ" v-bind:value="item.value">
                                 <label class="custom-control-label" v-bind:for="'swap-altij-' + item.value|slugify">{{ item.name }}</label>
                             </div>
@@ -279,7 +279,7 @@
                         <div class="col-12 col-sm-8">
                             <div class="row">
                                 <div class="col-12 col-md-6" v-for="item in choices.swap.figures">
-                                    <div class="custom-control form-control-sm custom-radio" v-bind:class="{ 'disabled': !options.swap_enabled }">
+                                    <div class="custom-control form-control-sm custom-radio text-truncate" v-bind:class="{ 'disabled': !options.swap_enabled }">
                                         <input type="radio" class="custom-control-input" v-bind:id="'swap-figures-' + item.value|slugify" v-model="options.swap_figures" v-bind:value="item.value">
                                         <label class="custom-control-label" v-bind:for="'swap-figures-' + item.value|slugify">{{ item.name }}</label>
                                     </div>
