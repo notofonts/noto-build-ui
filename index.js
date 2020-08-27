@@ -269,11 +269,6 @@ var app = new Vue({
                         value:'Nushu'
                     },
                     {
-                        name:'Odia',
-                        value:'Odia',
-                        featured: true
-                    },
-                    {
                         name:'Ogham',
                         value:'Ogham'
                     },
