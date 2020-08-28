@@ -512,11 +512,11 @@ var config = {
         ascender: {
             name: 'Ascender',
             min: 0,
-            max: 1000
+            max: 2000
         },
         descender: {
             name: 'Descender',
-            min: -1000,
+            min: -2000,
             max: 0
         }
     },
